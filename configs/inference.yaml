@@ -1,0 +1,14 @@
+# Reference contract only; runtime options are supplied as CLI flags.
+# Paths are relative to this repository root.
+weights: checkpoints/vital.pt
+simwam_weights: checkpoints/upstream/SimWAM.pt
+wan_vae: checkpoints/upstream/Wan2.2_VAE.pth
+data_root: data/navsim
+metric_cache: data/metric_cache
+device: cuda
+input_contract:
+  image: current_CAM_F0_RGB
+  proprio: [vx, vy, ax, ay, command_0, command_1, command_2, command_3]
+output_contract: [40, 3]
+nfe: 1
+seed: 0

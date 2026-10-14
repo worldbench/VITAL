@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vital"
+version = "0.1.0"
+description = "VITAL one-step inference from raw NAVSIM logs and official PDMS scoring"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "THIRD_PARTY_LICENSES/*.txt", "THIRD_PARTY_NOTICES.md"]
+authors = [
+  {name = "Alan Liang"},
+  {name = "Youquan Liu"},
+  {name = "Mingxiao Li"},
+  {name = "Wei Chow"},
+  {name = "Lingdong Kong"},
+  {name = "Yue Liao"},
+  {name = "Dongyue Lu"},
+  {name = "Yu Yang"},
+  {name = "Wei Yin"},
+  {name = "Runnan Chen"},
+]
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26,<2",
+  "PyYAML>=6.0",
+  "torch>=2.2",
+  "torchvision",
+  "Pillow>=10",
+  "einops>=0.8",
+  "tqdm>=4.66",
+]
+
+[project.scripts]
+vital-infer = "vital.cli.infer:main"
+vital-prepare-metrics = "vital.cli.prepare_metrics:main"
+vital-score = "vital.cli.score:main"
+vital-evaluate-pdms = "vital.cli.evaluate_pdms:main"
+vital-download-data = "vital.cli.download_data:main"
+vital-download-weights = "vital.cli.download_weights:main"
+vital-download-upstream = "vital.cli.download_upstream:main"
+vital-verify-weights = "vital.cli.verify_weights:main"
+
+[project.optional-dependencies]
+dev = ["build>=1.2,<2", "ruff>=0.11,<1"]
+
+[project.urls]
+Homepage = "https://worldbench.github.io/vital.html"
+Repository = "https://github.com/worldbench/VITAL"
+Documentation = "https://github.com/worldbench/VITAL#readme"
+Issues = "https://github.com/worldbench/VITAL/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["vital*"]
+
+[tool.setuptools.package-data]
+"vital.data" = ["*.yaml"]
+"vital.resources" = ["*.json"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+extend-exclude = ["src/vital/vendor"]
+
+[tool.ruff.lint]
+select = ["E9", "F"]

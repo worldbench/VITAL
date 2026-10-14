@@ -1,0 +1,12 @@
+include README.md LICENSE THIRD_PARTY_NOTICES.md Makefile .editorconfig .gitignore
+include requirements*.txt
+recursive-include src/vital *.py *.yaml *.json
+recursive-include THIRD_PARTY_LICENSES *.txt
+recursive-include docs *.md
+recursive-include docs/assets *.png
+recursive-include configs *.yaml
+recursive-include tests *.py
+recursive-include tools *.py
+include data/README.md checkpoints/.gitkeep
+recursive-include .github/workflows *.yml
+global-exclude *.py[cod] *.pt *.pth *.ckpt

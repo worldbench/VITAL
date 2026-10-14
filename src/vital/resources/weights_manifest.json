@@ -1,0 +1,7 @@
+{
+  "format": "vital_weights_v2",
+  "filename": "vital.pt",
+  "url": "https://huggingface.co/datasets/vital-wam/vital/resolve/046f00531d306a287f19f0f825108761728cff38/vital.pt",
+  "bytes": 2053505801,
+  "sha256": "9ddbc0d4d5b9ce2dcdf48db16f2d39bdcb8f72a86c4701d9f21e9b966094efa9"
+}
